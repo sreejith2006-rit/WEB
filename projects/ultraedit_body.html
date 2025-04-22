@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navigation Bar</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .content {
+        width: 100vw;
+        height: 142vh;
+        /* border: 2px solid black; */
+        display: grid;
+        grid-template-rows: 274px 274px 274px;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-items: center;
+        align-items: center;
+      }
+      .boxbody {
+        width: 267px;
+        height: 163px;
+        border: 2px solid whitesmoke;
+        background-color: lightgray;
+        opacity: 0.3;
+        border-radius: 10px;
+      }
+      .container {
+        width: 100vw;
+        height: 70px;
+        /* border: 2px solid black; */
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .logo img {
+        width: 200px;
+      }
+      ul {
+        font-family: "Segoe UI";
+        display: flex; /* Makes <ul> a flex container */
+        list-style: none; /* Removes bullets */
+        row-gap: 30px;
+        column-gap: 42px;
+      }
+      .list1 img {
+        position: relative;
+        right: 195px;
+        top: 3px;
+      }
+      .list img {
+        height: 17px;
+        position: relative;
+        top: 3px;
+      }
+      /* .bl{
+        margin: 50px;
+      } */
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="container">
+          <div class="logo"><img src="ultraedit.png" alt="logo" /></div>
+          <div class="box">
+            <ul class="list">
+              <li class="list">Products&nbsp;<img src="arrow.png" alt="" /></li>
+              <li class="list">
+                For Business&nbsp;<img src="arrow.png" alt="" />
+              </li>
+              <li class="list">
+                Resources&nbsp;<img src="arrow.png" alt="" />
+              </li>
+              <li class="list">Support&nbsp;<img src="arrow.png" alt="" /></li>
+              <li class="list">
+                Our Company&nbsp;<img src="arrow.png" alt="" />
+              </li>
+            </ul>
+          </div>
+          <div class="list1">
+            <img src="utilities.png" alt="" width="70px" height="" />
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="content">
+        <div class="boxbody"></div>
+        <div class="boxbody"></div>
+        <div class="boxbody"></div>
+        <div class="boxbody"></div>
+        <div class="boxbody"></div>
+        <div class="boxbody"></div>
+        <div class="boxbody"></div>
+        <div class="boxbody"></div>
+        <div class="boxbody"></div>
+        <div class="boxbody bl"></div>
+      </div>
+    </main>
+  </body>
+</html>

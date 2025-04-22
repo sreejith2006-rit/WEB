@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping List</title>
+    <style>
+      /* Resetting margin and padding for consistent styling */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Styling the body */
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f5f5f5;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      /* Header styling */
+      header {
+        width: 100%;
+        background-color: #6200ea;
+        color: #fff;
+        text-align: center;
+        padding: 15px 0;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+
+      /* Main section styling */
+      main {
+        width: 90%;
+        max-width: 600px;
+        margin-top: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        background-color: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      /* Container styling */
+      .adder {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        background-color: #e1bee7;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .adder input[type="text"],
+      .adder input[type="date"] {
+        width: 40%;
+        padding: 5px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+
+      .adder button {
+        padding: 5px 10px;
+        background-color: #6200ea;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .adder button:hover {
+        background-color: #45009d;
+      }
+
+      /* Todo list container */
+      .container {
+        padding: 15px;
+      }
+
+      /* Styling individual list items */
+      .todo-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .todo-item span {
+        font-size: 1rem;
+        word-break: break-word;
+      }
+
+      .todo-item button {
+        background-color: #e53935;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .todo-item button:hover {
+        background-color: #b71c1c;
+      }
+
+      @media (max-width: 600px) {
+        .adder input[type="text"],
+        .adder input[type="date"] {
+          width: 100%;
+          margin-bottom: 10px;
+        }
+
+        .adder {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .todo-item {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .todo-item button {
+          align-self: flex-end;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Shopping List</h1>
+    </header>
+    <main>
+      <div class="adder">
+        <input type="text" class="user" placeholder="Enter the items" />
+        <input type="date" class="date" placeholder="Enter the date" />
+        <button onclick="Add()">Add Item</button>
+      </div>
+      <div class="container"></div>
+    </main>
+    <script>
+      // let todo = [];
+
+      // function Add() {
+      //   const item = document.querySelector('.user').value.trim();
+      //   const date = document.querySelector('.date').value.trim();
+
+      //   if (!item || !date) {
+      //     alert("All fields are mandatory");
+      //     return;
+      //   }
+
+      //   const todoItem = { item, date };
+      //   todo.push(todoItem);
+      //   display();
+
+      //   document.querySelector('.user').value = '';
+      //   document.querySelector('.date').value = '';
+      // }
+
+      // function display() {
+      //   const container = document.querySelector('.container');
+      //   container.innerHTML = '';
+
+      //   todo.forEach((todoItem, index) => {
+      //     const div = document.createElement('div');
+      //     div.className = 'todo-item';
+
+      //     const itemSpan = document.createElement('span');
+      //     itemSpan.textContent = todoItem.item;
+
+      //     const dateSpan = document.createElement('span');
+      //     dateSpan.textContent = todoItem.date;
+
+      //     const deleteButton = document.createElement('button');
+      //     deleteButton.textContent = 'Delete';
+      //     deleteButton.onclick = () => del(index);
+
+      //     div.appendChild(itemSpan);
+      //     div.appendChild(dateSpan);
+      //     div.appendChild(deleteButton);
+
+      //     container.appendChild(div);
+      //   });
+      // }
+
+      // function del(index) {
+      //   todo.splice(index, 1);
+      //   display();
+      // }
+
+      // This function reads items from localStorage and appends them to the list
+      // function loadFromLocalStorage() {
+      //   const container = document.querySelector('.container');
+      //   const storedItems = JSON.parse(localStorage.getItem('data')) || [];
+
+      //   storedItems.forEach((todoItem, index) => {
+      //     const div = document.createElement('div');
+      //     div.className = 'todo-item';
+
+      //     const itemSpan = document.createElement('span');
+      //     itemSpan.textContent = todoItem.item;
+
+      //     const dateSpan = document.createElement('span');
+      //     dateSpan.textContent = new Date(todoItem.date).toLocaleDateString();
+
+      //     const deleteButton = document.createElement('button');
+      //     deleteButton.textContent = 'Delete';
+      //     deleteButton.onclick = () => {
+      //       storedItems.splice(index, 1);
+      //       localStorage.setItem('data', JSON.stringify(storedItems));
+      //       div.remove(); // Remove the item from the UI
+      //     };
+
+      //     div.appendChild(itemSpan);
+      //     div.appendChild(dateSpan);
+      //     div.appendChild(deleteButton);
+      //     container.appendChild(div);
+      //   });
+      // }
+
+      // // Call the function when the page loads
+      // window.onload = loadFromLocalStorage;
+      function loadFromLocalStorage() {
+        const container = document.querySelector(".container");
+        const storedItems = JSON.parse(localStorage.getItem("data")) || [];
+
+        storedItems.forEach((todoItem, index) => {
+          const div = document.createElement("div");
+          div.className = "todo-item";
+
+          const itemSpan = document.createElement("span");
+          itemSpan.textContent = todoItem.item;
+
+          const dateSpan = document.createElement("span");
+          if (todoItem.date === "Expired") {
+            dateSpan.textContent = "Expired";
+            dateSpan.style.color = "red"; // Optional: make it stand out
+          } else {
+            dateSpan.textContent = new Date(todoItem.date).toLocaleDateString();
+          }
+
+          const deleteButton = document.createElement("button");
+          deleteButton.textContent = "Delete";
+          deleteButton.onclick = () => {
+            storedItems.splice(index, 1);
+            localStorage.setItem("data", JSON.stringify(storedItems));
+            div.remove();
+          };
+
+          div.appendChild(itemSpan);
+          div.appendChild(dateSpan);
+          div.appendChild(deleteButton);
+          container.appendChild(div);
+        });
+      }
+      function Add() {
+        const itemInput = document.querySelector(".user");
+        const dateInput = document.querySelector(".date");
+
+        const item = itemInput.value.trim();
+        const date = dateInput.value.trim();
+
+        if (!item || !date) {
+          alert("All fields are mandatory!");
+          return;
+        }
+
+        // Date check for expiry
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        const inputDate = new Date(date + "T00:00:00");
+        let finalDate = date;
+
+        if (inputDate < today) {
+          alert("This item is already expired!");
+          finalDate = "Expired";
+        }
+
+        const newItem = { item, date: finalDate };
+
+        const storedItems = JSON.parse(localStorage.getItem("data")) || [];
+        storedItems.push(newItem);
+        localStorage.setItem("data", JSON.stringify(storedItems));
+
+        itemInput.value = "";
+        dateInput.value = "";
+
+        loadFromLocalStorage(); // Update list visually
+      }
+      window.onload = loadFromLocalStorage;
+    </script>
+  </body>
+</html>

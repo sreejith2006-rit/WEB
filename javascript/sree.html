@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>check even or odd</title>
+</head>
+<body style="background-color: green;">
+    <label for="check">Enter the no</label>
+    <input type="text" id="check">
+    <br>
+    <button onclick="check()" style="background-color: red;" >check</button>
+    <p id="demo"></p>
+<script>
+    function check(){
+        alert("do you want to check it")
+        let x=document.getElementById("check").value;
+        if(x%2==0){
+            document.getElementById("demo").innerHTML="even"
+        }
+        else{
+            document.write("odd")
+        }
+    }
+</script>
+</body>
+</html>

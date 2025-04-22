@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+            --color:yellow;
+            --seccolor:black;
+            --cbor:5px solid blue;
+            --pad:45px;
+            --mar:5px;
+            --dis:inside;
+        }
+        .box{
+            width:300px;
+            height:400px;
+            border:var(--cbor);
+            color: var(--color);
+            background-color: var(--seccolor);
+            padding: var(--pad);
+            margin: var(--mar);
+        }
+        li{
+            --cbor:2px solid blue;
+            border: var(--cbor);
+            list-style-position: var(--dis);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li>home</li>
+            <li>About</li>
+            <li>Help</li>
+            <li>Contacts</li>
+        </ul>
+    </div>
+</body>
+</html>

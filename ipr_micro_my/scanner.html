@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Barcode Scanner</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
+    <style>
+      #scanner-container {
+        width: 100%;
+        max-width: 500px;
+        margin: auto;
+        text-align: center;
+      }
+      #video {
+        width: 100%;
+        border: 2px solid #0055a2;
+      }
+      /* Scanner Container */
+      #scanner-container {
+        max-width: 500px; /* Limit scanner container size */
+        margin: 2rem auto; /* Center align the scanner container */
+        padding: 1rem;
+        border: 2px solid #0055a2; /* Add a border for emphasis */
+        border-radius: 10px; /* Rounded corners */
+        background-color: #f1f8ff; /* Light Blue */
+        text-align: center; /* Center align text and content */
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+      }
+
+      /* Video Feed Styling */
+      #video {
+        width: 100%; /* Set video to full width */
+        height: auto; /* Maintain aspect ratio */
+        border: 2px solid #0055a2; /* Match border color */
+        border-radius: 10px; /* Rounded corners for video */
+        margin-bottom: 1rem; /* Space below the video feed */
+      }
+
+      /* Scanner Section Title */
+      #scanner-container h1 {
+        font-size: 2rem;
+        color: #0055a2; /* Deep Blue */
+        margin-bottom: 1rem;
+      }
+
+      /* Result Text */
+      #result {
+        font-size: 1.2rem;
+        color: green;
+        font-weight: bold;
+        margin-top: 1rem;
+      }
+
+      /* Buttons (Optional) */
+      .scan-btn {
+        padding: 10px 20px;
+        background-color: green;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-top: 1rem;
+      }
+
+      .scan-btn:hover {
+        background-color: #00772e; /* Darker green on hover */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="scanner-container">
+      <h1>Scan a Barcode</h1>
+      <div id="video"></div>
+      <p id="result">Waiting for scan...</p>
+    </div>
+
+    <script>
+      // Initialize QuaggaJS
+      Quagga.init(
+        {
+          inputStream: {
+            name: "Live",
+            type: "LiveStream",
+            target: document.querySelector("#video"), // Video element
+          },
+          decoder: {
+            readers: ["code_128_reader", "ean_reader", "upc_reader"], // Supported barcode types
+          },
+        },
+        function (err) {
+          if (err) {
+            console.error(err);
+            return;
+          }
+          console.log("QuaggaJS initialized.");
+          Quagga.start();
+        }
+      );
+
+      // Detect barcode and display result
+      Quagga.onDetected(function (data) {
+        document.getElementById(
+          "result"
+        ).innerText = `Barcode Detected: ${data.codeResult.code}`;
+        Quagga.stop(); // Stop scanning after detection
+      });
+    </script>
+  </body>
+</html>

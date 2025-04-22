@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+  
+</head>
+<body>
+    <h1 style="text-align: center">Registration Form</h1>
+    <div class="box">
+        <form action="q1.html" onsubmit="return vform()">
+            <label for="uname">Username :</label>
+            <input type="text" id="uname" required>
+            <br><br>
+            <label for="em">Email :</label>
+            <input type="email" id="em" required>
+            <br><br>
+            <label for="pass">Password :</label>
+            <input type="password" id="pass" required>
+            <br><br>
+            <label for="passs">Confirm Password:</label>
+            <input type="password" id="passs" required>
+            <br><br>
+            <input type="submit" value="Register">
+        </form>
+    </div>
+    <script>
+        function vform() {
+            let username = document.getElementById("uname").value.trim();
+            let email = document.getElementById("em").value;
+            let password = document.getElementById("pass").value;
+            let confirmPassword = document.getElementById("passs").value;
+
+            if (username === '') {
+                alert("Username must be filled.");
+                return false;
+            }
+
+            
+            if (email.value!="339.sreejit@gmail.com") {
+                alert("Invalid email .");
+                return false;
+            }
+
+            if (password.length < 8) {
+                alert("Password should be at least 8 characters long.");
+                return false;
+            }
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match.");
+                return false;
+            }
+
+            alert("Registered successfully!");
+            return true;
+        }
+    </script>
+</body>
+</html>

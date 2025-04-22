@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FreshAlert\contact-us</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #fdf5e6;
+        background-image: url('veg3.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+        color: #fff;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("veg2.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        filter: blur(4px) brightness(0.6);
+        z-index: -1;
+      }
+      .box ul {
+        /* border: 2px solid #0055a2; */
+        border: 2px solid #006400;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-around;
+        /* background-color: #0055a2; */
+        background-color: #006400;
+      }
+      .name {
+        font-size: 1.5rem;
+        font-weight: normal;
+        margin: 0;
+      }
+      li {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 5px;
+        text-decoration: none;
+        font-size: 1.1em;
+        list-style-type: none;
+        font-weight: 600;
+        color: #fff;
+      }
+      .logo-container img {
+        width: 70px;
+        height: auto;
+        margin-right: 10px;
+        position: relative;
+        bottom: -10px;
+      }
+      .logo-container {
+        display: flex;
+        align-items: baseline;
+        position: relative;
+        right: 40px;
+        margin: 0;
+      }
+
+      a {
+        text-decoration: none;
+        color: #fff;
+      }
+      .signup {
+        background-color: green;
+        border: 2px solid green;
+        color: #fff;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+      }
+      .signup {
+        background-color: green;
+        border: 2px solid green;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        border-radius: 10px;
+      }
+
+      .contact-section {
+        padding: 2rem;
+        text-align: center;
+      }
+
+      .contact-section h1 {
+        color: #fff;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .contact-section form {
+        margin: 2rem auto;
+        width: 100%;
+        max-width: 500px;
+        background-color: #e7f7e7;
+        border: 2px solid #32cd32;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+      }
+
+      .contact-section label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        /* color: rgb(0, 85, 162); */
+        color: #006400;
+      }
+
+      .contact-section input,
+      .contact-section textarea {
+        width: 100%;
+        padding: 0.8rem;
+        margin-bottom: 1rem;
+        border: 2px solid green;
+        border-radius: 5px;
+        font-size: 1rem;
+      }
+
+      .contact-section button {
+        /* background-color: rgb(0, 85, 162); */
+        background-color: #006400;
+        color: #fff;
+        padding: 0.8rem 1.5rem;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+
+      .business-info {
+        margin: 2rem auto;
+        text-align: left;
+        max-width: 600px;
+        line-height: 1.6;
+      }
+      .business-info a {
+        color: #fff;
+        font-weight: bold;
+        text-decoration: underline;
+      }
+
+      .business-info h2 {
+        color: #fff;
+        margin-bottom: 1rem;
+      }
+
+      .faq {
+        margin: 2rem auto;
+        max-width: 600px;
+        text-align: left;
+      }
+
+      .faq h2 {
+        color: #fff;
+        margin-bottom: 1rem;
+      }
+
+      .faq p {
+        margin: 0.5rem 0;
+      }
+
+      footer {
+        /* background-color: #0055a2; */
+        background-color: #006400;
+        color: white;
+        text-align: center;
+        padding: 1rem 0;
+        margin-top: 2rem;
+      }
+
+      footer p {
+        margin: 0;
+      }
+      @media (max-width: 768px) {
+      .box ul {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="box">
+          <ul>
+            <li class="logo-container">
+              <img src="logo.png" alt="FreshAlert Logo" />
+              <h1>FreshAlert</h1>
+            </li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="how.html">How It Works</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <!-- <li><button class="signup"><a href="signup.html">Sign Up</button></li> -->
+              <li><button class="signup" onclick="location.href='signup.html';">Sign Up</button></li>
+
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="contact-section">
+        <h1>Contact Us</h1>
+        <p>
+          We’re here to help! Feel free to reach out for support, inquiries, or
+          feedback.
+        </p>
+
+        <div class="form-container">
+          <form action="thank.html" method="post">
+            <label for="name">Your Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter your name"
+              required
+            />
+
+            <label for="email">Your Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter your email"
+              required
+            />
+
+            <label for="message">Your Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              placeholder="Write your message here"
+              required
+            ></textarea>
+
+            <button type="submit" onclick="alert('message successfully sent')">
+              Send Message
+            </button>
+          </form>
+        </div>
+
+        <div class="business-info">
+          <h2>Business Contact Information</h2>
+          <p>
+            Email:
+            <a href="mailto:support@freshalert.com">support@freshalert.com</a>
+          </p>
+          <p>Phone: +1-800-000-0000</p>
+          <p>Address: 123 Sustainability Lane, Green City, Earth</p>
+        </div>
+
+        <div class="business-info">
+          <h2>Operating Hours</h2>
+          <p>Monday-Friday: 9 AM - 5 PM</p>
+          <p>Saturday-Sunday: Closed</p>
+        </div>
+
+        <div class="faq">
+          <h2>Frequently Asked Questions</h2>
+          <p><strong>Q:</strong> How can I reset my account password?</p>
+          <p>
+            <strong>A:</strong> Use the "Forgot Password" option on the login
+            screen.
+          </p>
+          <p><strong>Q:</strong> How do I add items with a barcode?</p>
+          <p>
+            <strong>A:</strong> Scan the barcode using our app’s scanner
+            feature.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 FreshAlert. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

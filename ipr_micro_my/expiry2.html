@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manual Expiry Date Tracking</title>
+  <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f7f9fb;
+      background-image: url(freshel.png);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .header {
+      text-align: center;
+      padding: 20px;
+      /* background-color: #0055a2; */
+      background-color: #006400;
+      color: #fff;
+      position: relative;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+    }
+
+    .header p {
+      font-size: 1rem;
+      margin-top: 5px;
+    }
+
+    .back-button {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 0.9em;
+      font-weight: bold;
+    }
+
+    .back-button:hover {
+      background-color: #3e8e41;
+    }
+
+    .container {
+      width: 400px;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      margin: 30px auto;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      /* color: #0055a2; */
+      color: #006400;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="date"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 2px solid #0055a2;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #4caf50;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #3e8e41;
+    }
+
+    .list {
+      margin-top: 15px;
+      background-color: rgb(208, 26, 26);
+    }
+
+    .list a {
+      text-decoration: none;
+      color: #f7f9fb;
+    }
+
+    .list:hover {
+      background-color: darkred;
+      transition: all 0.3s ease;
+    }
+
+    #reader {
+      width: 100%;
+      margin-top: 20px;
+      border: 2px solid #0055a2;
+      border-radius: 8px;
+    }
+
+    .item-list {
+      margin-top: 30px;
+      text-align: left;
+    }
+
+    .item-list p {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>Expiry Date Tracking</h1>
+    <p>Easily track items before they expire.</p>
+    <a href="features.html" class="back-button">Go Back</a>
+  </header>
+
+  <main>
+    <div class="container">
+      <h2> Expiry Date Tracker</h2>
+
+      <button onclick="startScanner()">📷 Scan Barcode \ QR Code</button>
+      <div id="reader"></div>
+
+      <form id="contentForm">
+        <label for="contentName">Item Name:</label>
+        <input type="text" id="contentName" name="contentName" required />
+
+        <label for="expiryDate">Expiry Date:</label>
+        <input type="date" id="expiryDate" name="expiryDate" required />
+
+        <button type="submit">Add Item</button>
+        <br />
+        <button class="list"><a href="list3.html">Shopping List</a></button>
+      </form>
+
+      <div class="item-list" id="itemList">
+        <!-- Items will be displayed here -->
+      </div>
+    </div>
+  </main>
+
+  <script>
+    let array = [];
+
+    // Load existing items
+    if (localStorage.getItem("data")) {
+      array = JSON.parse(localStorage.getItem("data"));
+    //   displayItems();
+    }
+
+    document.getElementById("contentForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      validate();
+    });
+
+    function validate() {
+      const a = document.querySelector("#contentName").value.trim();
+      const b = document.querySelector("#expiryDate").value.trim();
+
+      if (!a || !b) {
+        alert("All parameters are Mandatory!!!");
+        return;
+      }
+
+      const expiryDate = new Date(b + "T00:00:00");
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      const timeDiff = expiryDate.getTime() - today.getTime();
+      const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+      let dateToStore = diffDays < 0 ? "Expired" : b;
+
+      if (diffDays < 0) {
+        alert("Item Already Expired!!!");
+      } else if (diffDays === 0) {
+        alert("Item Expiring today");
+      } else {
+        alert(`The item expires in ${diffDays} Days`);
+      }
+
+      alert("Item successfully added");
+
+      array.push({ item: a, date: dateToStore });
+      localStorage.setItem("data", JSON.stringify(array));
+
+      document.getElementById("contentName").value = "";
+      document.getElementById("expiryDate").value = "";
+
+    //   displayItems();
+    }
+
+    function displayItems() {
+      const itemList = document.getElementById("itemList");
+      itemList.innerHTML = "";
+
+      array.forEach((entry) => {
+        const p = document.createElement("p");
+        const displayDate = entry.date === "Expired"
+          ? "Expired"
+          : new Date(entry.date).toLocaleDateString();
+        p.textContent = `${entry.item} — ${displayDate}`;
+        itemList.appendChild(p);
+      });
+    }
+
+    // Barcode scanner integration
+    const barcodeDatabase = {
+  "0123456789012": { name: "Milk (2L)", mfgDate: "2025-04-10" },
+  "9876543210987": { name: "Eggs (Dozen)", mfgDate: "2025-04-15" },
+  "1234567890128": { name: "Orange Juice", mfgDate: "2025-04-05" },
+  "1111111111111": { name: "Flour", mfgDate: "2025-04-01" },
+  "2222222222222": { name: "Ice Cream", mfgDate: "2025-04-12" },
+  "3333333333333": { name: "Curry Powder", mfgDate: "2025-03-30" },
+  "4444444444444": { name: "Chips", mfgDate: "2025-04-14" },
+  "5555555555555": { name: "Curd", mfgDate: "2025-04-13" }
+};
+
+    function calculateExpiry(mfgDate, shelfDays = 10) {
+      const mfg = new Date(mfgDate);
+      mfg.setDate(mfg.getDate() + shelfDays);
+      return mfg.toISOString().split("T")[0];
+    }
+
+    function startScanner() {
+      const reader = document.getElementById("reader");
+      reader.innerHTML = ""; // Clear previous
+
+      const scanner = new Html5Qrcode("reader");
+      scanner.start(
+        { facingMode: "environment" },
+        { fps: 10, qrbox: 250 },
+        (decodedText) => {
+          if (barcodeDatabase[decodedText]) {
+            const product = barcodeDatabase[decodedText];
+            document.getElementById("contentName").value = product.name;
+            document.getElementById("expiryDate").value = calculateExpiry(product.mfgDate);
+            alert(`Scanned: ${product.name}`);
+          } else {
+            alert("Barcode not recognized.");
+          }
+          scanner.stop(); // Stop scanning after one successful scan
+        },
+        (error) => {
+          // console.warn(error);
+        }
+      );
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart</title>
+  </head>
+  <body>
+    <header>
+      <h1>Shopping Cart</h1>
+    </header>
+    <main>
+      <section>
+        <table border="1">
+          <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Price(Rs)</th>
+          </tr>
+          <tr>
+            <td>To Kill a Mockingbird</td>
+            <td>Harper Lee</td>
+            <td>100</td>
+          </tr>
+          <tr>
+            <td>1984</td>
+            <td>George Orwell</td>
+            <td>120</td>
+          </tr>
+          <tr>
+            <td>The Great Gatsby</td>
+            <td>F. Scott Fitzgerald</td>
+            <td>150</td>
+          </tr>
+          <tr>
+            <td colspan="2">Total</td>
+            <td>370</td>
+          </tr>
+        </table>
+      </section>
+      <div>
+        <h2>Payment Details</h2>
+        <form action="payment.txt" id="pay">
+        <label for="cardholder">Cardholder Name:</label>
+        <input
+          type="text"
+          id="cardholder"
+          name="cardholder"
+          required
+        /><br /><br />
+        <label for="cardnumber">Card Number:</label>
+        <input
+          type="text"
+          id="cardnumber"
+          name="cardnumber"
+          required
+        /><br /><br />
+        <label for="expiry">Expiry Date (MM/YY):</label>
+        <input type="text" id="expiry" name="expiry" required /><br /><br />
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" name="cvv" required /><br /><br />
+      </div>
+      <button type="submit" onclick="alert('confirm order payment')" >Pay 370</button>
+    </form>
+    </main>
+  </body>
+</html>

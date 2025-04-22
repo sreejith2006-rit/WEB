@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container{
+        border: 2px solid black;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+    <div class="box">
+    <form id="registrationForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" /><br />
+      <br />
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" /><br />
+      <br />
+
+      <label for="email">E-mail ID:</label>
+      <input type="text" id="email" name="email" /><br />
+      <br />
+      <label for="phone">Phone Number:</label>
+      <input type="text" id="phone" name="phone" /><br />
+      <br />
+
+      <label>Sex:</label>
+      <input type="radio" id="male" name="sex" value="Male" /> Male
+      <input type="radio" id="female" name="sex" value="Female" /> Female<br />
+      <br />
+
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" />
+      <br />
+
+      <label>Languages Known:</label>
+      <input type="checkbox" name="language" value="English" /> English
+      <input type="checkbox" name="language" value="Telugu" /> Telugu
+      <input type="checkbox" name="language" value="Hindi" /> Hindi
+      <input type="checkbox" name="language" value="Tamil" /> Tamil<br />
+      <br />
+      <label for="address">Address:</label>
+      <textarea id="address" name="address"></textarea><br />
+      <br />
+
+      <button type="button" onclick="validateForm()">Submit</button>
+    </form>
+  </div>
+</div>
+    <script>
+      function validateForm() {
+        let isValid = true;
+
+        // Validate Name
+        const name = document.getElementById("name").value;
+        if (!/^[A-Za-z\s]{6,}$/.test(name)) {
+          alert(
+            "Name must contain only alphabets and have at least 6 characters."
+          );
+          isValid = false;
+        }
+
+        // Validate Password
+        const password = document.getElementById("password").value;
+        if (password.length < 6) {
+          alert("Password must be at least 6 characters long.");
+          isValid = false;
+        }
+
+        // Validate E-mail ID
+        const email = document.getElementById("email").value;
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        if (!emailPattern.test(email)) {
+          alert("Enter a valid email address (e.g., name@domain.com).");
+          isValid = false;
+        }
+
+        // Validate Phone Number
+        const phone = document.getElementById("phone").value;
+        if (!/^\d{10}$/.test(phone)) {
+          alert("Phone number must contain exactly 10 digits.");
+          isValid = false;
+        }
+
+        if (isValid) {
+          alert("Form submitted successfully!");
+        }
+      }
+    </script>
+  </body>
+</html>

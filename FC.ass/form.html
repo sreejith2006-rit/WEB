@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <style>
+      .box {
+        width: 500px;
+        height: 500px;
+        margin: 4px 10px 41px 467px;
+        padding: 4px;
+        border: 2px solid black;
+        background-color: aqua;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="text-align: center">Registration Form</h1>
+    <div class="box">
+      <form action="q1.html" onsubmit="return vform()">
+        <label for="uname">Username :</label>
+        <input type="text" id="uname" />
+        <br />
+        <br />
+        <label for="em">Email :</label>
+        <input type="text" id="em" />
+        <br />
+        <br />
+        <label for="pass">password :</label>
+        <input type="text" id="pass" />
+        <br />
+        <br />
+        <label for="passs">Confirm Password:</label>
+        <input type="text" id="passs" />
+        <br />
+        <br />
+        <input type="submit" value="register" />
+      </form>
+    </div>
+    <script>
+      function vform() {
+        let username = document.getElementById("uname").value;
+        let email = document.getElementById("em").value;
+        let password = document.getElementById("pass").value;
+        let confirmPassword = document.getElementById("passs").value;
+        if ((username).value.trim()=='') {
+          alert("must be filled.");
+          return; false
+        }
+
+        if ( (email).value!="sree@gmail.com") {
+          alert("Invalid email format.");
+          return false;
+        }
+
+        if (len(password.value)<8) {
+          alert(
+            " Password should be at least 8 characters long."
+          );
+          return false;
+        }
+        if(confirmPassword.value!=12345678){
+
+        alert("Incorrect Password");
+        return false;}
+        else{
+            alert("registered suceessfully")
+            return true;
+
+        }
+      }
+    </script>
+  </body>
+</html>

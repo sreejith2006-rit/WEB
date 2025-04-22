@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Features</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        background-image: url('sh.png');
+        background-size: cover; /* Ensures the image covers the entire viewport */
+            background-repeat: no-repeat;
+            object-position: right;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        filter: brightness(30px) ;
+      }
+      .box ul {
+        /* border: 2px solid #0055a2; */
+        border: 2px solid #006400;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        justify-content: space-around;
+        /* background-color: #0055a2; */
+        background-color: #006400;
+      }
+
+      .name {
+        font-size: 1.5rem;
+        font-weight: normal;
+        margin: 0;
+      }
+      li {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 5px;
+        text-decoration: none;
+        font-size: 1.1em;
+        list-style-type: none;
+        font-weight: 600;
+        color: #fff;
+      }
+      .logo img {
+        width: 60px;
+        height: auto;
+        margin-right: 10px;
+        /* position: relative;
+        bottom: -10px; */
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        /* position: relative;
+        right: 40px;
+        margin: 0; */
+      }
+
+      a {
+        text-decoration: none;
+        color: #fff;
+      }
+      /* .signup {
+        background-color: green;
+        border: 2px solid green;
+        color: #fff;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+      } */
+      .signup {
+      background-color: green;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+      .big {
+        width: 100vw;
+        height: 600px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .container {
+        max-width: 800px;
+        margin: 20px auto;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        padding: 50px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .feature {
+        margin-bottom: 20px;
+      }
+
+      .feature h2 a{
+        color: #4caf50;
+      }
+
+      .feature p {
+        margin: 0;
+        line-height: 1.6;
+      }
+      .end {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        /* background-color: #003366; */
+        background-color: #006400;
+        color: white;
+        text-align: center;
+        padding-top: 10px;
+        padding-bottom: 20px;
+      }
+      .feature a:hover {
+            color: rgb(202, 63, 63); 
+        }
+        /* @media (max-width: 768px) {
+      .box ul {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    } */
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="box">
+          <ul>
+            <li class="logo">
+              <img src="logo.png" alt="FreshAlert Logo" />
+              <h1>FreshAlert</h1>
+            </li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="how.html">How It Works</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contacts2.html">Contact</a></li>
+            <li><button class="signup"><a href="signup.html">Sign Up</a></button></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <div class="big">
+      <div class="container">
+        <section class="feature">
+          <h2><a href="recipe.html">Smart Recipe Suggestions</a></h2>
+          <p>
+            Get recipe ideas to use items before they spoil. Say goodbye to food
+            waste and hello to creativity in the kitchen!
+          </p>
+        </section>
+
+        <section class="feature">
+          <h2><a href="expiry2.html">Expiry Date Tracking</a></h2>
+          <p>
+            Track the expiry dates of your food items. Receive alerts before
+            items expire and make the most of your pantry.
+          </p>
+        </section>
+
+        <section class="feature">
+          <h2><a href="list3.html">Auto-Generated Shopping List</a></h2>
+          <p>
+            Automatically add expiring items to your shopping list. Manage
+            restocking with ease and never run out of essentials.
+          </p>
+        </section>
+      </div>
+    </div>
+    <div class="end">
+      <footer>
+        <p>&copy; 2025 Fresh Alert. All rights reserved.</p>
+      </footer>
+    </div>
+  </body>
+</html>

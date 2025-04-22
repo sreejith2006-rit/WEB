@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - FreshAlert</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5faff;
+      background-image: url('veg3.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      /* color: #003366; */
+    }
+
+    .box ul {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-around;
+      /* background-color: #0055a2; */
+      background-color: #006400;
+      padding: 10px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      width: 60px;
+      height: auto;
+    }
+
+    li {
+      list-style-type: none;
+      margin: 5px;
+      font-size: 1.1em;
+      font-weight: 600;
+    }
+
+    a, .signup {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .signup {
+      background-color: green;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .about-section {
+      padding: 3rem 1.5rem;
+      max-width: 900px;
+      margin: auto;
+      /* color: #003366; */
+      background-color: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      margin-top: 30px;
+    }
+
+    .about-section h1, .about-section h2 {
+      /* color: #0055a2; */
+      color: #006400;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .about-section h2 {
+      margin-top: 2.5rem;
+      font-size: 1.4rem;
+    }
+
+    .about-section p {
+      font-size: 1rem;
+      margin-top: 1rem;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .about-section ul {
+      margin-top: 1rem;
+      padding-left: 1.5rem;
+    }
+
+    .about-section ul li {
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+
+    footer {
+      /* background-color: #0055a2; */
+      background-color: #006400;
+      color: white;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      margin-top: 3rem;
+    }
+
+    .message {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+
+    /* Popup Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0; top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 400px;
+      width: 90%;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      text-align: center;
+    }
+
+    .modal-content h2 {
+      margin-bottom: 1rem;
+      color: #0055a2;
+    }
+
+    .modal-content input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .modal-content button {
+      background-color: green;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .close-modal {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .box ul {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="box">
+        <ul>
+          <li class="logo">
+            <img src="logo.png" alt="FreshAlert Logo" />
+            <h1 style="color: white;">FreshAlert</h1>
+          </li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="how.html">How It Works</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contacts2.html">Contact</a></li>
+          <li><button class="signup"><a href="signup.html">Sign Up</button></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="about-section">
+      <h1>About FreshAlert</h1>
+      <p>
+        At FreshAlert, we’re changing how households handle food — one expiration date at a time. 
+        Founded by sustainability enthusiasts and tech lovers, our goal is to fight food waste using smart tools.
+      </p>
+
+      <h2>Who We Are</h2>
+      <p>
+        A passionate team of developers, designers, and conscious consumers working to create meaningful impact.
+      </p>
+
+      <h2>What We Do</h2>
+      <ul>
+        <li>📅 Track expiry dates with ease</li>
+        <li>🧾 Organize food inventory by freshness</li>
+        <li>🔔 Get reminders before items expire</li>
+        <li>🍽️ Plan meals based on what's available</li>
+      </ul>
+
+      <h2>Why It Matters</h2>
+      <p>
+        Every year, over 1.3 billion tons of food is wasted. A lot of this happens at home. 
+        With FreshAlert, you take back control and make conscious choices.
+      </p>
+
+      <h2>Our Vision</h2>
+      <p>
+        A world where food never goes to waste — and tech makes sustainability easy and accessible.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 FreshAlert. All rights reserved.</p>
+    <div class="message">
+      <p>Stay Fresh!!! Stay Alert!!!</p>
+      <p>Use FreshAlert!!!</p>
+    </div>
+  </footer>
+
+  <!-- Signup Modal -->
+  <!-- <div class="modal" id="signupModal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="toggleModal()">×</button>
+      <h2>Sign Up for FreshAlert</h2>
+      <input type="text" placeholder="Full Name" />
+      <input type="email" placeholder="Email Address" />
+      <input type="password" placeholder="Create Password" />
+      <button>Register</button>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('signupModal');
+    const signupBtn = document.querySelector('.signup');
+
+    function toggleModal() {
+      modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
+    }
+
+    signupBtn.addEventListener('click', () => {
+      modal.style.display = 'flex';
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  </script> -->
+
+</body>
+</html>
+

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        .boxes *{
+            color: aliceblue;
+        }
+        .box:first-child{
+            font-style: italic;
+        }
+        .box:nth-last-child(1){
+            background-color: red;
+        }
+        .box::before{
+            color: red;
+            content: "hello";
+        }
+        .box::selection{
+            background-color: beige;
+            color: black;
+        }
+        .box::first-letter{
+            font-size: 40px;
+        }
+        input::placeholder{
+            color :red
+        }
+    </style>
+
+</head>
+<body>
+    <div class="boxes">
+    <div class="box">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur doloribus at quidem aliquam, consequuntur asperiores dolores ullam hic ea, alias harum amet error ipsam iusto excepturi, architecto accusantium soluta quo impedit in sed nisi? Corporis voluptatibus consectetur asperiores quam, libero iste quod explicabo fugiat alias.
+    </div>
+    <br>
+    <div class="box">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque rerum dolores atque? Temporibus molestiae deserunt necessitatibus, facilis voluptate aperiam, omnis reprehenderit eligendi officiis consectetur, iure neque eos! Placeat exercitationem perferendis blanditiis corrupti natus voluptates quidem sunt delectus pariatur praesentium ad aliquam itaque ea ducimus beatae, cum culpa tempore repudiandae vel earum officiis quae! Quod, cumque nobis.
+    </div>
+    <br>
+    <div class="box">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque possimus unde officiis aliquid perferendis dolore. Facilis tenetur iure fuga molestiae suscipit! Voluptas numquam, mollitia expedita maiores autem adipisci, quis ullam ipsam explicabo sed accusamus!
+        <br>
+    </div>
+    <input type="text" placeholder="enter your name">
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bounce</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        width: 80vw;
+        height: 50vh;
+        background-color: black;
+        position: relative;
+        top: 25vh;
+        left: 10vw;
+      }
+      .box {
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        border-radius: 50px;
+        position: absolute;
+        bottom: 0px;
+        margin: 5px;
+        animation: name duration timing-function delay iteration-count direction fill-mode;
+      }
+      @keyframes bounce {
+        from {
+        }
+        to {
+          transform: translateX(100px) translateY(-150px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box"></div>
+    </div>
+  </body>
+</html>

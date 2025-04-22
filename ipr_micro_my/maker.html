@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generate Barcodes</title>
+  <script src="https://cdn.jsdelivr.net/npm/jsbarcode"></script>
+  <style>
+    .barcode-container {
+      text-align: center;
+      margin: 20px;
+    }
+    svg {
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="barcode-container" id="barcodeContainer"></div>
+
+  <script>
+    const barcodeDatabase = {
+      "0123456789012": { name: "Milk (2L)", date: "2025-04-10" },
+      "9876543210987": { name: "Eggs (Dozen)", date: "2025-04-15" },
+      "1234567890128": { name: "Orange Juice", date: "2025-04-05" },
+      "1111111111111": { name: "Flour", date: "2025-04-01" },
+      "2222222222222": { name: "Ice Cream", date: "2025-04-12" },
+      "3333333333333": { name: "Curry Powder", date: "2025-03-30" },
+      "4444444444444": { name: "Chips", date: "2025-04-14" },
+      "5555555555555": { name: "Curd", date: "2025-04-13" }
+    };
+
+    const container = document.getElementById("barcodeContainer");
+
+    Object.keys(barcodeDatabase).forEach((key) => {
+      const item = barcodeDatabase[key];
+      const barcode = document.createElement("svg");
+      JsBarcode(barcode, item.date, {
+        format: "CODE128",
+        displayValue: true,
+        text: `${item.name} (${item.date})`
+      });
+      container.appendChild(barcode);
+    });
+  </script>
+</body>
+</html>

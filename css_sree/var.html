@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+            /* --color:red; */
+            ---seccolor:black;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            /* --color:blue; */
+            width: 400px;
+            height: 500px;
+            border: 2px solid black;
+            margin: 50px ;
+            padding: 40px;
+            list-style-position: inside;
+            background-color: var(--color,blue);
+        }
+        body{
+            background-color: black;
+        }
+        @media  only screen and (max-width:200px) {
+            body{
+                background-color: red;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li>hello</li>
+            <li>bro</li>
+            <li>portal</li>
+        </ul>
+    </div>
+</body>
+</html>

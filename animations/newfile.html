@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My animation</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        .container{
+            width: 99vw;
+            height: 98vh;
+            background-color: black;
+            padding: 20px;
+            position: relative;
+
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            left:10vw;
+            background-color: yellow;
+            border-radius: 50px;
+            position: absolute;
+            animation-name: movement;
+            animation-duration: 9s;
+            animation-iteration-count: infinite;
+            
+        }
+        @keyframes movement {
+            0%{left:10vw;top:0px;}
+            25%{left:85vw;top:0px;}
+            50%{left:85vw;top:80vh;}
+            75%{left:0vw;top:80vh;}
+            100%{left:10vw;top:0px;}
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box"></div>
+    </div>
+</body>
+</html>

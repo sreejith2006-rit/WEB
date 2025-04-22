@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manual Expiry Date Tracking</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #f7f9fb;
+        background-image: url(freshel.png);
+        filter: brightness(5px);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .header {
+        text-align: center;
+        padding: 20px;
+        background-color: #0055a2;
+        color: #fff;
+        position: relative;
+      }
+
+      .header h1 {
+        font-size: 2rem;
+      }
+
+      .header p {
+        font-size: 1rem;
+        margin-top: 5px;
+      }
+
+      .back-button {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 0.9em;
+        font-weight: bold;
+      }
+
+      .back-button:hover {
+        background-color: #3e8e41;
+      }
+
+      .container {
+        width: 400px;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        margin: 30px auto;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        color: #0055a2;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 1rem;
+        font-weight: bold;
+        color: #333;
+      }
+
+      input[type="text"],
+      input[type="date"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 2px solid #0055a2;
+        border-radius: 5px;
+        font-size: 1rem;
+        color: #333;
+      }
+
+      button {
+        background-color: #4caf50;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: bold;
+      }
+
+      button:hover {
+        background-color: #3e8e41;
+      }
+
+      .item-list {
+        margin-top: 30px;
+        text-align: left;
+        color: #333;
+        font-size: 1rem;
+      }
+
+      .item-list p {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <h1>Expiry Date Tracking</h1>
+      <p>Easily track items before they expire.</p>
+      <a href="features.html" class="back-button">Go Back</a>
+    </header>
+    <main>
+      <div class="container">
+        <h2>Manual Expiry Date Tracking</h2>
+        <form id="contentForm" onsubmit="return validate()">
+          <label for="contentName">Item Name:</label>
+          <input type="text" id="contentName" name="contentName" required />
+
+          <label for="expiryDate">Expiry Date:</label>
+          <input type="date" id="expiryDate" name="expiryDate" required />
+
+          <button type="submit">Add Item</button>
+        </form>
+        <div class="item-list" id="itemList">
+          <!-- Dynamic item list will appear here -->
+        </div>
+      </div>
+    </main>
+    <script>
+        let a,b;
+      function validate() {
+
+            a=document.querySelector('#contentName').value.trim();
+            b=document.querySelector('#expiryDate').value.trim()
+            console.log(b,typeof b);
+            if(!a||!b){
+                alert('All parameters are Mandatory!!!');
+                return false;
+            }
+            else{
+                if (new Date(b)<new Date()) {
+                    alert('Item Already Expired!!!');
+                    return false;
+                }
+                else if (new Date(b).getDate()===new Date().getDate()) {
+                alert('Item Expiring today') ;
+                return false;
+                }
+                else{
+                    alert(`The item expires in ${new Date(b).getDate()-new Date().getDate()} Days`);
+                    alert('Item sucessfully added');
+                }
+            }
+      }
+
+    </script>
+  </body>
+</html>
+
+

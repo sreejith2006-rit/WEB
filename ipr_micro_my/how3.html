@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>How It Works - FreshAlert</title>
+  <style>
+
+      * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url("veg2.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("veg2.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      filter: blur(4px) brightness(0.6);
+      z-index: -1;
+    }
+
+    nav .box ul {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-around;
+      background-color: #006400;
+      padding: 10px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      width: 60px;
+      height: auto;
+    }
+
+    li {
+      list-style-type: none;
+      margin: 5px;
+      font-size: 1.1em;
+      font-weight: 600;
+    }
+
+    a, .signup {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .signup {
+      background-color: green;
+      border: none;
+      margin-left: 15px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .how-section {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .how-section h1 {
+      font-size: 2.5rem;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    .step {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      background-color: #f0f8ff;
+    }
+
+    .step h2 {
+      /* color: #0055a2; */
+      color: #006400;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .step p {
+      color: #333;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .cta {
+      margin-top: 3rem;
+    }
+    .cta h2{
+      margin-bottom: 15px;
+    }
+
+    .cta button {
+      background-color: green;
+      color: white;
+      padding: 12px 24px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    footer {
+      /* background-color: #0055a2; */
+      background-color: #006400;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+
+    .message {
+      font-size: 24px;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .box ul {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .step {
+        text-align: left;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="box">
+        <ul>
+          <li class="logo">
+            <img src="logo.png" alt="FreshAlert Logo" />
+            <h1 style="color: #fff;">FreshAlert</h1>
+          </li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="how.html">How It Works</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contacts2.html">Contact</a></li>
+          <li><a href="signup.html">Sign Up</li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="how-section">
+      <h1>How FreshAlert Works</h1>
+
+      <div class="step">
+        <h2>1. Add Your Items</h2>
+        <p>Enter your groceries manually or scan barcodes to instantly add them with expiration dates.</p>
+      </div>
+
+      <div class="step">
+        <h2>2. Track Expiry Dates</h2>
+        <p>FreshAlert automatically organizes items and highlights what's about to expire soon or already expired.</p>
+      </div>
+
+      <div class="step">
+        <h2>3. Get Notified & Take Action</h2>
+        <p>Receive timely alerts before food spoils. Plan meals or use suggested recipes to avoid waste.</p>
+      </div>
+
+      <div class="cta">
+        <h2>Ready to Take Control of Your Kitchen?</h2>
+        <button onclick="window.location.href='signup.html'">Get Started</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 FreshAlert. All rights reserved.</p>
+    <div class="message">
+      <p>Stay Fresh !!! Stay Alert !!!</p>
+      <p>Use FreshAlert !!!</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelector(".signup").addEventListener("click", () => {
+      window.location.href = "signup.html";
+    });
+  </script>
+</body>
+</html>
